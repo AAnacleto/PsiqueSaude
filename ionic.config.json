@@ -1,0 +1,7 @@
+{
+  "name": "psiqueSaude",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
