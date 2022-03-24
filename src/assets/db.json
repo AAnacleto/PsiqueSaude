@@ -1,0 +1,83 @@
+{
+  "instituicoes": [
+    {
+      "id": 1,
+      "nome": "Fafire",
+      "endereco": {
+            "rua": "Avenida Conde boa vista",
+            "bairro": "Soledade",
+            "cidade": "Recife",
+            "numero": "233"
+      },
+      "listaPsicologos":[
+
+            {
+               "nome": "Felipe Castro",
+                "crm": "04/11111",
+                "descricao": "",
+                "foto": "",
+                "especialidades": [
+                  { "id":"1",
+                    "nome": "Depressao"
+                  },
+                  { "id":"2",
+                    "nome": "Conflitos Amorosos"
+                  }
+
+                ],
+                "horarios": [
+                  { "hora": "7" , "status": false},
+                  { "hora": "8",  "status": false},
+                  { "hora": "9",  "status": false},
+                  { "hora": "10", "status": false},
+                  { "hora": "11", "status": false}
+
+
+                ]
+             },
+             {
+              "nome": "Everton Mendes",
+               "crm": "04/11111",
+               "descricao": "",
+               "foto": "",
+               "especialidades": [
+                 { "id":"1",
+                   "nome": "sexualidade"
+                 },
+                 { "id":"2",
+                   "nome": "Familia"
+                 }
+
+               ],
+               "horarios": [
+                 { "hora": "7" , "status": false},
+                 { "hora": "8",  "status": false},
+                 { "hora": "9",  "status": false},
+                 { "hora": "10", "status": false},
+                 { "hora": "11", "status": false}
+
+
+               ]
+            }
+    ]
+
+
+    },
+    {
+      "id": "2",
+      "nome": "Uninassau"
+    },
+    {
+      "id": "3",
+      "nome": "Uninabuco"
+    },
+    {
+      "id": "4",
+      "nome": "Católica"
+    },
+    {
+      "id": "5",
+      "nome": "UNIP"
+    }
+  ]
+}
