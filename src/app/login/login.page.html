@@ -1,22 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <main>
-    <section>
-      <ion-item>
-        <ion-label position="floating">Nome</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
+<body>
+ <div class="top-bar">
+  <section  class="container">
+    <!--PROCURAR UMA IMAGEM PNG-->
+    <img src="../assets/logos/logoPsiqueSocial.png">
+
+    <br>
+
+        <!-- <ion-label position="floating">Nome</ion-label> -->
+        <!-- <ion-input type="text" class="inputClass"></ion-input> -->
+        <!-- <ion-input type="text" placeholder="Nome" class="inputClass"></ion-input> -->
+    <input type="text" placeholder="Usuario" class="inputClass">
+    <br>
+    <br>
+    <input type="password" placeholder="Senha" class="inputClass">
+
+
+        <!-- <ion-label position="floating">Senha</ion-label> -->
+        <!-- <ion-input type="password" class="inputClass"></ion-input> -->
+        <!-- <ion-input type="password" placeholder="Senha" style="border-radius:50px"></ion-input> -->
+
+      <br>
+      <br>
+
       <ion-button expand="block" (click)="entrar()">Entrar</ion-button>
-      <span style="text-align: center">Registre-se</span>
+      <br>
+      <ion-grid>
+        <ion-row>
+           <ion-col size="8">
+<!--
+              <ion-label>Lembrar</ion-label>
+              <ion-checkbox></ion-checkbox> -->
+
+
+           </ion-col>
+           <ion-col size="4"> <a> Registre-se </a> </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div>
+      </div>
+
     </section>
-  </main>
-</ion-content>
+  </div>
+</body>

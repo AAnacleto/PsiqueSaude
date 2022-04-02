@@ -6,13 +6,44 @@
 
 <ion-content>
 
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <h1>Slide 1</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
+
   <section class="container-body">
-     <ion-button expand="block" (click)="marcarConsultas()">Agendar Consulta</ion-button>
-     <ion-button expand="block" (click)="consultasAgendadas()">Consultar marcadas</ion-button>
-  </section>
+     <!-- <ion-button expand="block" (click)="marcarConsultas()">Agendar Consulta</ion-button>
+     <br>
+     <ion-button expand="block" (click)="consultasAgendadas()">Consultar marcadas</ion-button> -->
 
 
+  <ion-card (click)="marcarConsultas()">
+    <ion-item class="item">
+      <ion-icon name="bag-add-outline" slot="start"></ion-icon>
+      <ion-label>Agendar Consulta</ion-label>
+    </ion-item>
+  </ion-card>
 
+  <ion-card (click)="consultasAgendadas()">
+    <ion-item class="item">
+      <ion-icon name="document-attach-outline" slot="start"></ion-icon>
+      <ion-label>Consultas Marcadas</ion-label>
+    </ion-item>
+  </ion-card>
 
+</section>
 
 </ion-content>
+
+<ion-footer >
+   <ion-toolbar style="background-color: #5CC6BA;">
+    <ion-title>Footer - No Border</ion-title>
+  </ion-toolbar>
+</ion-footer>

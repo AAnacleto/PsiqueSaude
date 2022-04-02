@@ -9,11 +9,20 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
+ 
+
   constructor(private router: Router,
     ) { }
 
   ngOnInit() {
   }
+
+
 
   marcarConsultas(){
     this.router.navigate(['marcar-consultas']);

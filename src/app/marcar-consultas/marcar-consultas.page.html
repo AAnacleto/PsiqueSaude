@@ -6,4 +6,10 @@
 
 <ion-content>
 
+  <ion-card *ngFor="let cidade of cidades" (click)="buscarInstituicoes(cidade.nome)">
+    <ion-card-content>
+         <h1>{{cidade.nome}} </h1>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -31,7 +31,25 @@ const routes: Routes = [
   {
     path: 'consultas-agendadas',
     loadChildren: () => import('./consultas-agendadas/consultas-agendadas.module').then( m => m.ConsultasAgendadasPageModule)
-  }
+  },
+  {
+    path: 'busca-consultas/:nome',
+    loadChildren: () => import('./busca-consultas/busca-consultas.module').then( m => m.BuscaConsultasPageModule)
+  },
+  {
+    path: 'busca-consultas/:nome',
+    redirectTo: 'busca-consultas/:nome',
+    pathMatch: 'full'
+  },
+  {
+    path: 'busca-psicologos/:nome',
+    loadChildren: () => import('./busca-psicologos/busca-psicologos.module').then( m => m.BuscaPsicologosPageModule)
+  },
+  {
+    path: 'busca-psicologos/:nome',
+    redirectTo: 'busca-psicologos/:nome',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

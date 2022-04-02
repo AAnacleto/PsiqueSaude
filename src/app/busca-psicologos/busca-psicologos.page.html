@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Psicologos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let psicologo of listaPsicologos, let i = index">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img class="img" src="{{psicologo.foto}}">
+          </ion-col>
+          <ion-col class="descricao">
+            {{psicologo.nome}} <br>
+
+            <ion-row><b> CRM: </b>  {{psicologo.crm}} </ion-row>
+            <ion-row *ngFor="let especialidade of psicologo.especialidades"> {{especialidade.nome}} </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+           <ion-col>
+             <ion-card-subtitle> Saber mais <ion-button size="small" shape="round" (click)="abrirDescricao(i)"> <ion-icon slot="icon-only"  name="add-outline"></ion-icon> </ion-button> </ion-card-subtitle>
+           </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngIf="psicologo.eventoDescricao === true">{{psicologo.descricao}}</p>
+      <ion-button *ngIf="psicologo.eventoHora === false" shape="round" expand="full" (click)="abrirHorario(i)">Ver horarios</ion-button>
+      <ion-button *ngIf="psicologo.eventoHora === true" shape="round" expand="full" (click)="abrirHorario(i)">Fechar horarios</ion-button>
+
+      <ion-datetime *ngIf="psicologo.eventoHora === true">
+        <ion-buttons slot="buttons">
+          <ion-button (click)="confirm()">Good to go!</ion-button>
+          <ion-button (click)="reset()">Reset</ion-button>
+        </ion-buttons>
+      </ion-datetime>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
