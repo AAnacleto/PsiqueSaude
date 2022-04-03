@@ -18,10 +18,8 @@ export class MarcarConsultasPage implements OnInit {
     },
     {
       nome: 'Paulista'
-    },
-    {
-      nome: 'Abreu e Lima'
     }
+
   ];
 
   constructor(    private router: Router,

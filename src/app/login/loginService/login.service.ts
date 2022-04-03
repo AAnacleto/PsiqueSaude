@@ -13,4 +13,8 @@ export class LoginService {
   verificarLogin(usuario: Users){
     return this.http.get('http://localhost:3000/Usuarios/?usuario='+ usuario.usuario);
   }
+
+  novoCadastro(usuario: Users){
+    return this.http.post('http://localhost:3000/Usuarios', usuario);
+  }
 }

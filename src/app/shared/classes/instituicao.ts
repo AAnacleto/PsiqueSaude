@@ -7,4 +7,8 @@ export class Instituicao{
   nome: string;
   endereco: Endereco;
   psicologos: Psicologos;
+  logo: string;
+  horario: string;
+  valor: string;
+  descricao: string;
 }

@@ -1,3 +1,4 @@
+import { LoginPageModule } from './login.module';
 import { Users } from './../shared/classes/users';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
 
   usuario: Users = new Users();
   retornoUsuario: Users = new Users();
-
+  novoRegistro: boolean;
+  receberStatus: string;
 
   constructor(
     private router: Router,
@@ -23,7 +25,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.novoRegistro = false;
   }
 
   verificarLogin(){
@@ -67,6 +69,16 @@ export class LoginPage implements OnInit {
 
   entrar(){
     this.router.navigate(['home/' + this.retornoUsuario.nome]);
+
+  }
+
+  registrar(){
+    this.novoRegistro = true;
+  }
+
+  receberStatusRegistro(retorno: boolean){
+    this.novoRegistro = retorno;
+    console.log(this.novoRegistro);
 
   }
 

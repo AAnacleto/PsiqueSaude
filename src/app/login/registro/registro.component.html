@@ -1,0 +1,22 @@
+<section class="container">
+  <ion-item class="itemClass">
+    <ion-input class="input" type="text" placeholder="Nome" [(ngModel)]="usuario.nome"></ion-input>
+    <ion-icon name="people" slot="start"></ion-icon>
+  </ion-item>
+  <br>
+  <ion-item class="itemClass">
+    <ion-input class="input" type="text" placeholder="Usuario" [(ngModel)]="usuario.usuario"></ion-input>
+    <ion-icon name="person" slot="start"></ion-icon>
+  </ion-item>
+  <br>
+  <ion-item class="itemClass">
+    <ion-input class="input" type="password" placeholder="Senha"[(ngModel)]="usuario.senha"></ion-input>
+    <ion-icon name="lock-closed" slot="start"></ion-icon>
+  </ion-item>
+</section>
+<br>
+<section class="buttons">
+  <ion-button class="button" color="tertiary" expand="block" (click)="novoCadastro()">Cadastrar</ion-button>
+  <br/>
+  <ion-button class="button" color="tertiary" expand="block" (click)="voltarPageLogin()">Cancelar</ion-button>
+</section>

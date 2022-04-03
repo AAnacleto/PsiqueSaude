@@ -1,38 +1,31 @@
-<body>
-  <div class="top-bar">
-    <section class="container">
+<ion-content color="primary">
+  <div>
+    <section class="container-head">
       <img src="../assets/logos/logo.png" />
-
+    </section>
+   <div *ngIf="novoRegistro===false; else NovoCadastro">
+    <section class="container">
+       <ion-item class="itemClass">
+        <ion-input class="input" type="text" placeholder="Usuario" [(ngModel)]="usuario.usuario"></ion-input>
+        <ion-icon name="person" slot="start"></ion-icon>
+      </ion-item>
+      <br>
+      <ion-item class="itemClass">
+        <ion-input class="input" type="password" placeholder="Senha" [(ngModel)]="usuario.senha"></ion-input>
+        <ion-icon name="lock-closed" slot="start"></ion-icon>
+      </ion-item>
+      <br>
+    </section>
+     <section class="buttons">
+      <ion-button class="button" color="tertiary" expand="block" (click)="verificarLogin()"
+        >Entrar</ion-button
+      >
       <br />
-
-      <input
-        type="text"
-        placeholder="Usuario"
-        class="inputClass"
-        [(ngModel)]="usuario.usuario"
-      />
-      <br />
-      <br />
-      <input
-        type="password"
-        placeholder="Senha"
-        class="inputClass"
-        [(ngModel)]="usuario.senha"
-      />
-
-      <br />
-      <br />
-
-      <ion-button color="tertiary" expand="block" (click)="verificarLogin()">Entrar</ion-button>
-      <br />
-      <ion-grid>
-        <ion-row>
-          <ion-col size="8"> </ion-col>
-          <ion-col size="4"> <a> Registre-se </a> </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <div></div>
+      <ion-button class="button" color="tertiary" expand="block" (click)="registrar()">Registre-se</ion-button>
     </section>
   </div>
-</body>
+    <ng-template #NovoCadastro>
+      <app-registro (novoRegistro)="receberStatusRegistro($event)"></app-registro>
+    </ng-template>
+  </div>
+</ion-content>
