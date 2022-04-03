@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
   }
 
   consultasAgendadas(){
-    this.router.navigate(['consultas-agendadas']);
+    this.router.navigate(['consultas-agendadas/' + this.nome]);
 
   }
 

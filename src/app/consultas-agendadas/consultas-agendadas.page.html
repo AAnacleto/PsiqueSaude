@@ -1,9 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>consultasAgendadas</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Consultas Agendadas</ion-title>
+    <ion-icon
+      slot="start"
+      name="chevron-back-outline"
+      style="font-size: 1.5rem"
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary">
+  <div *ngIf="listaConsultas.length !== 0; else consultasVazias">
+    <ion-card *ngFor="let consultas of listaConsultas">
+      <ion-card-header *ngIf="consultas.status==='ativo'" color="success">
+        Consulta Ativa</ion-card-header
+      >
+      <ion-card-header *ngIf="consultas.status==='inativo'" color="danger">
+        Consulta Inativa
+      </ion-card-header>
 
+      <ion-card-content>
+        <div class="cardContent">
+          <p><b> Psicologo: </b>{{consultas.psicologo}}</p>
+          <p><b> Instituicao: </b> {{consultas.instituicao}}</p>
+          <p><b> Data: </b> {{consultas.data}}</p>
+          <p><b> Hora: </b> {{consultas.hora}}</p>
+          <p>
+            <b> Endereco:</b> {{consultas.endereco.rua}} -
+            {{consultas.endereco.numero}}
+          </p>
+          <p>{{consultas.endereco.bairro}} - {{consultas.endereco.cidade}}</p>
+          <p>{{consultas.endereco.pontoReferencia}}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ng-template #consultasVazias>
+    <ion-card>
+      <ion-card-content>
+        <h2>Ainda não há consultas marcadas</h2>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
 </ion-content>

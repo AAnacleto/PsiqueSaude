@@ -40,7 +40,15 @@ const routes: Routes = [
     loadChildren: () => import('./marcar-consultas/marcar-consultas.module').then( m => m.MarcarConsultasPageModule)
   },
   {
+    path: 'marcar-consultas/:nome',
+    loadChildren: () => import('./marcar-consultas/marcar-consultas.module').then( m => m.MarcarConsultasPageModule)
+  },
+  {
     path: 'consultas-agendadas',
+    loadChildren: () => import('./consultas-agendadas/consultas-agendadas.module').then( m => m.ConsultasAgendadasPageModule)
+  },
+  {
+    path: 'consultas-agendadas/:nome',
     loadChildren: () => import('./consultas-agendadas/consultas-agendadas.module').then( m => m.ConsultasAgendadasPageModule)
   },
   {
@@ -64,6 +72,11 @@ const routes: Routes = [
   {
     path: 'home/:nome',
     redirectTo: 'home/:nome',
+    pathMatch: 'full'
+  },
+  {
+    path: 'consultas-agendadas/:nome',
+    redirectTo: 'consultas-agendadas',
     pathMatch: 'full'
   },
 ];
