@@ -1,15 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>marcarConsultas</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Escolha a cidade</ion-title>
+    <ion-icon
+    slot="start"
+    name="chevron-back-outline"
+    class="icon-voltar"
+    (click)="voltar()"
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <ion-card *ngFor="let cidade of cidades" (click)="buscarInstituicoes(cidade.nome)">
-    <ion-card-content>
-         <h1>{{cidade.nome}} </h1>
-    </ion-card-content>
-  </ion-card>
-
+<ion-content color="secondary">
+  <section class="section">
+    <ion-button
+      class="buttons"
+      expand="block"
+      color="primary"
+      *ngFor="let cidade of cidades"
+      (click)="buscarInstituicoes(cidade.nome)"
+    >
+      <ion-label style="font-size: 1.5rem">{{cidade.nome}} </ion-label>
+    </ion-button>
+  </section>
 </ion-content>

@@ -25,6 +25,11 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'home/:nome',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+
+  {
     path: 'marcar-consultas',
     loadChildren: () => import('./marcar-consultas/marcar-consultas.module').then( m => m.MarcarConsultasPageModule)
   },
@@ -48,6 +53,11 @@ const routes: Routes = [
   {
     path: 'busca-psicologos/:nome',
     redirectTo: 'busca-psicologos/:nome',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home/:nome',
+    redirectTo: 'home/:nome',
     pathMatch: 'full'
   },
 ];

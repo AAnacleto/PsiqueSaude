@@ -18,6 +18,9 @@ export class MarcarConsultasPage implements OnInit {
     },
     {
       nome: 'Paulista'
+    },
+    {
+      nome: 'Abreu e Lima'
     }
   ];
 
@@ -29,6 +32,10 @@ export class MarcarConsultasPage implements OnInit {
 
   buscarInstituicoes(cidade: string){
     this.router.navigate(['busca-consultas/' + cidade]);
+  }
+
+  voltar(){
+    this.router.navigate(['home']);
   }
 
 }

@@ -1,49 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title style="text-align: center;">Inicio</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center">Bem vinda(a), {{nome}}</ion-title>
+    <ion-icon name="log-out-outline" slot="end" class="icon-log-off"></ion-icon>
   </ion-toolbar>
 </ion-header>
+<ion-content color="secondary">
 
-<ion-content>
-
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
-    </ion-slide>
-  </ion-slides>
+  <section class="slide">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <img src="../assets/imagens/campanha.png" alt="Campanha vacina" />
+      </ion-slide>
+      <ion-slide>
+        <img src="../assets/imagens/dengue.jpg" alt="Campanha dengue" />
+      </ion-slide>
+      <ion-slide>
+        <img
+          src="../assets/imagens/novembro_azul.jpg"
+          alt="Campanha novembro azul"
+        />
+      </ion-slide>
+    </ion-slides>
+  </section>
 
   <section class="container-body">
-     <!-- <ion-button expand="block" (click)="marcarConsultas()">Agendar Consulta</ion-button>
-     <br>
-     <ion-button expand="block" (click)="consultasAgendadas()">Consultar marcadas</ion-button> -->
-
-
-  <ion-card (click)="marcarConsultas()">
-    <ion-item class="item">
+    <ion-button expand="block" color="primary" (click)="marcarConsultas()">
       <ion-icon name="bag-add-outline" slot="start"></ion-icon>
-      <ion-label>Agendar Consulta</ion-label>
-    </ion-item>
-  </ion-card>
-
-  <ion-card (click)="consultasAgendadas()">
-    <ion-item class="item">
+      <ion-label style="font-size: larger">Agendar Consulta</ion-label>
+    </ion-button>
+    <br />
+    <ion-button expand="block" color="primary" (click)="consultasAgendadas()">
       <ion-icon name="document-attach-outline" slot="start"></ion-icon>
-      <ion-label>Consultas Marcadas</ion-label>
-    </ion-item>
-  </ion-card>
-
-</section>
+      <ion-label style="font-size: larger">Consultas Marcadas</ion-label>
+    </ion-button>
+ </section>
 
 </ion-content>
 
-<ion-footer >
-   <ion-toolbar style="background-color: #5CC6BA;">
-    <ion-title>Footer - No Border</ion-title>
-  </ion-toolbar>
-</ion-footer>
+
+
+<!-- <ion-card (click)="marcarConsultas()" class="card">
+      <ion-item class="item">
+        <ion-icon name="bag-add-outline" slot="start"></ion-icon>
+        <ion-label>Agendar Consulta</ion-label>
+      </ion-item>
+    </ion-card>
+    <ion-card (click)="consultasAgendadas()" class="card">
+      <ion-item class="item">
+        <ion-icon name="document-attach-outline" slot="start"></ion-icon>
+        <ion-label>Consultas Marcadas</ion-label>
+      </ion-item>
+    </ion-card> -->

@@ -4,25 +4,29 @@
   padding: 0;
 }
 body{
-  background-color: lightblue;
+  background-color: #0099cc;
 
 }
 
 .top-bar{
-  background-color: lightblue;
+  background-color: #0099cc;
 }
 
 .container{
   margin-top: 50%;
   margin-left: 10%;
   margin-right: 10%;
+  align-items: center;
+  text-align: center;
+
 }
 
-img{
-  width: 140px;
-  height: 120px;
-  margin-left: 50%;
-  margin-right: 50%;
+.container img{
+  width: 250px;
+  height: 200px;
+  margin-top: -80px;
+
+
 }
 
 .inputClass{

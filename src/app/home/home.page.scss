@@ -1,7 +1,19 @@
 *{
   box-sizing: border-box;
-  // margin: 0;
-  // padding: 0;
+
+}
+
+ion-content{
+
+  background-color: #f4f4f4 !important;
+}
+
+.icon-log-off{
+  font-size: 1.5rem;
+}
+
+.toolbar-container{
+  background-color: #5CC6BA;
 }
 
 .container-body{
@@ -13,19 +25,27 @@ ion-slides {
   height: 40%;
 }
 
-ion-card{
-  background-color: aqua;
-}
-
-.item{
-  background-color: aqua;
-
-}
-
-ion-footer{
+.card{
   background-color: #5CC6BA;
 }
 
-.toolbar-container {
-  background-color: #5CC6BA;
+.slide{
+  margin-top: 20px;
 }
+
+.slide img{
+  width: 300px;
+  height: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

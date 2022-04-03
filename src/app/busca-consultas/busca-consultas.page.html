@@ -1,10 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>buscaConsultas</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Faculdades Disponiveis</ion-title>
+    <ion-icon
+    slot="start"
+    name="chevron-back-outline"
+    style="font-size: 1.5rem;"
+
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary">
   <ion-card *ngFor="let instituicao of listInstituicao">
     <img src="{{instituicao.logo}}" />
     <ion-card-header>
@@ -38,7 +44,7 @@
       </ion-grid>
     </ion-card-header>
     <ion-card-content>
-      <ion-button expand="full" (click)="verPsicologos(instituicao.nome)">Ver psicólogos</ion-button>
+      <ion-button expand="block" (click)="verPsicologos(instituicao.nome)">Ver psicólogos</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

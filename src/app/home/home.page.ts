@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
+  nome: string;
+
   slideOpts = {
     initialSlide: 1,
     speed: 400
   };
 
- 
-
-  constructor(private router: Router,
-    ) { }
+ constructor(private router: Router, private routeActivated: ActivatedRoute) { }
 
   ngOnInit() {
+    this.nome = this.routeActivated.snapshot.params.nome;
   }
-
-
 
   marcarConsultas(){
     this.router.navigate(['marcar-consultas']);

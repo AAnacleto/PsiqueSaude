@@ -1,10 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Psicologos</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Psicologos disponiveis</ion-title>
+    <ion-icon
+    slot="start"
+    name="chevron-back-outline"
+    style="font-size: 1.5rem;"
+
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary">
   <ion-card *ngFor="let psicologo of listaPsicologos, let i = index">
     <ion-card-header>
       <ion-grid>
@@ -21,15 +27,17 @@
         </ion-row>
         <ion-row>
            <ion-col>
-             <ion-card-subtitle> Saber mais <ion-button size="small" shape="round" (click)="abrirDescricao(i)"> <ion-icon slot="icon-only"  name="add-outline"></ion-icon> </ion-button> </ion-card-subtitle>
+             <ion-card-subtitle> Saber mais
+               <ion-button size="small" shape="round" (click)="abrirDescricao(i)"> <ion-icon slot="icon-only"  name="add-outline"></ion-icon> </ion-button>
+              </ion-card-subtitle>
            </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-header>
     <ion-card-content>
       <p *ngIf="psicologo.eventoDescricao === true">{{psicologo.descricao}}</p>
-      <ion-button *ngIf="psicologo.eventoHora === false" shape="round" expand="full" (click)="abrirHorario(i)">Ver horarios</ion-button>
-      <ion-button *ngIf="psicologo.eventoHora === true" shape="round" expand="full" (click)="abrirHorario(i)">Fechar horarios</ion-button>
+      <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="abrirHorario(i)">Ver horarios</ion-button>
+      <ion-button *ngIf="psicologo.eventoHora === true" expand="block" (click)="abrirHorario(i)">Fechar horarios</ion-button>
 
       <ion-datetime *ngIf="psicologo.eventoHora === true">
         <ion-buttons slot="buttons">
