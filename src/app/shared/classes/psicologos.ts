@@ -3,6 +3,7 @@ import { Horarios } from '../classes/horarios';
 
 
 export class Psicologos{
+  id: number;
   nome: string;
   crm: string;
   descricao: string;

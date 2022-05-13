@@ -79,6 +79,15 @@ const routes: Routes = [
     redirectTo: 'consultas-agendadas',
     pathMatch: 'full'
   },
+  {
+    path: 'agendar-consultas/:id',
+    loadChildren: () => import('./agendar-consultas/agendar-consultas.module').then( m => m.AgendarConsultasPageModule)
+  },
+  {
+    path: 'agendar-consultas/:id',
+    redirectTo: 'agendar-consultas/:id',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

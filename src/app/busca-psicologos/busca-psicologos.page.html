@@ -36,15 +36,17 @@
     </ion-card-header>
     <ion-card-content>
       <p *ngIf="psicologo.eventoDescricao === true">{{psicologo.descricao}}</p>
-      <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="abrirHorario(i)">Ver horarios</ion-button>
-      <ion-button *ngIf="psicologo.eventoHora === true" expand="block" (click)="abrirHorario(i)">Fechar horarios</ion-button>
+      <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="verPsicologo(i)">Ver horarios</ion-button>
 
-      <ion-datetime *ngIf="psicologo.eventoHora === true">
+      <!-- <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="abrirHorario(i)">Ver horarios</ion-button>
+      <ion-button *ngIf="psicologo.eventoHora === true" expand="block" (click)="abrirHorario(i)">Fechar horarios</ion-button> -->
+
+      <!-- <ion-datetime *ngIf="psicologo.eventoHora === true">
         <ion-buttons slot="buttons">
           <ion-button (click)="confirm()">Good to go!</ion-button>
           <ion-button (click)="reset()">Reset</ion-button>
         </ion-buttons>
-      </ion-datetime>
+      </ion-datetime> -->
 
     </ion-card-content>
   </ion-card>

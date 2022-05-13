@@ -1,7 +1,7 @@
 import { Psicologos } from './../shared/classes/psicologos';
 import { BuscaPsicologosService } from './buscaPsicologosService/busca-psicologos.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-busca-psicologos',
@@ -16,7 +16,7 @@ export class BuscaPsicologosPage implements OnInit {
   descricao: boolean;
   horario: boolean;
 
-  constructor(private routeActivated: ActivatedRoute, private buscaPsicologosService: BuscaPsicologosService) { }
+  constructor(private routeActivated: ActivatedRoute, private buscaPsicologosService: BuscaPsicologosService, private router: Router) { }
 
   ngOnInit() {
     this.faculdade = this.routeActivated.snapshot.params.nome;
@@ -45,6 +45,11 @@ export class BuscaPsicologosPage implements OnInit {
   abrirHorario(i){
 
     this.listaPsicologos[i].eventoHora = !this.listaPsicologos[i].eventoHora;
+  }
+
+  verPsicologo(i){
+    this.router.navigate(['agendar-consultas/' + this.listaPsicologos[i].id]);
+
   }
 
 }
