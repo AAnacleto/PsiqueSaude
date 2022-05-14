@@ -1,17 +1,20 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Psicologos disponiveis</ion-title>
-    <ion-icon
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-icon
     slot="start"
     name="chevron-back-outline"
     style="font-size: 1.5rem;"
 
-    ></ion-icon>
+    ></ion-icon> -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="secondary">
-  <ion-card *ngFor="let psicologo of listaPsicologos, let i = index">
+<ion-content color="secondary" fullscreen>
+  <!-- <ion-card *ngFor="let psicologo of listaPsicologos, let i = index">
     <ion-card-header>
       <ion-grid>
         <ion-row>
@@ -36,7 +39,7 @@
     </ion-card-header>
     <ion-card-content>
       <p *ngIf="psicologo.eventoDescricao === true">{{psicologo.descricao}}</p>
-      <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="verPsicologo(i)">Ver horarios</ion-button>
+      <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="verPsicologo(i)">Ver horarios</ion-button> -->
 
       <!-- <ion-button *ngIf="psicologo.eventoHora === false" expand="block" (click)="abrirHorario(i)">Ver horarios</ion-button>
       <ion-button *ngIf="psicologo.eventoHora === true" expand="block" (click)="abrirHorario(i)">Fechar horarios</ion-button> -->
@@ -48,7 +51,21 @@
         </ion-buttons>
       </ion-datetime> -->
 
-    </ion-card-content>
-  </ion-card>
+    <!-- </ion-card-content>
+  </ion-card> -->
 
+
+
+  <ion-list>
+    <ion-item *ngFor="let psicologo of listaPsicologos, let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="psicologo.foto"></ion-img>
+      </ion-thumbnail>
+      <ion-label (click)="verPsicologo(i)">
+        <h2>{{psicologo.nome}}</h2>
+        <h3>CRM: {{psicologo.crm}}</h3>
+        <p>{{psicologo.descricao}}</p>
+        </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

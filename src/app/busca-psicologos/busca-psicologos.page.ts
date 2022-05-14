@@ -2,6 +2,7 @@ import { Psicologos } from './../shared/classes/psicologos';
 import { BuscaPsicologosService } from './buscaPsicologosService/busca-psicologos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-busca-psicologos',
@@ -16,12 +17,17 @@ export class BuscaPsicologosPage implements OnInit {
   descricao: boolean;
   horario: boolean;
 
-  constructor(private routeActivated: ActivatedRoute, private buscaPsicologosService: BuscaPsicologosService, private router: Router) { }
+  constructor(private routeActivated: ActivatedRoute,
+              private buscaPsicologosService: BuscaPsicologosService,
+              private router: Router,
+              public loadingController: LoadingController
+              ) { }
 
   ngOnInit() {
     this.faculdade = this.routeActivated.snapshot.params.nome;
     this.descricao = false;
     this.horario = false;
+    this.presentLoading();
     setTimeout(()=>{
       this.pesquisarPorFaculdade();
 
@@ -50,6 +56,18 @@ export class BuscaPsicologosPage implements OnInit {
   verPsicologo(i){
     this.router.navigate(['agendar-consultas/' + this.listaPsicologos[i].id]);
 
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Carregando',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+
+    console.log('Loading dismissed!');
   }
 
 }

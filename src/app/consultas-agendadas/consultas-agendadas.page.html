@@ -1,15 +1,13 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Consultas Agendadas</ion-title>
-    <ion-icon
-      slot="start"
-      name="chevron-back-outline"
-      style="font-size: 1.5rem"
-    ></ion-icon>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="secondary">
+<ion-content color="secondary" fullscreen>
   <div *ngIf="listaConsultas.length !== 0; else consultasVazias">
     <ion-card *ngFor="let consultas of listaConsultas">
       <ion-card-header *ngIf="consultas.status==='ativo'" color="success">

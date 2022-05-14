@@ -1,9 +1,78 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>agendar-consultas</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Agendar Consulta</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary" fullscreen>
+  <!-- <div *ngFor="let item of psicologo, let i = index;"> -->
+  <!-- <ion-row>
+    <ion-col>
+      <img class="img" src="{{psicologo.foto}}">
+
+    </ion-col>
+    <ion-col id="nome">
+      {{psicologo.nome}}
+    </ion-col>
+  </ion-row> -->
+<!-- </div> -->
+<ion-card>
+  <ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img class="img" src="{{psicologo.foto}}">
+        </ion-col>
+        <ion-col class="descricao">
+         <h5> {{psicologo.nome}} </h5>
+
+          <ion-row><b> CRM: </b>  {{psicologo.crm}} </ion-row>
+          <ion-row *ngFor="let especialidade of psicologo.especialidades"><b> {{especialidade.nome}}</b> </ion-row>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-card-header>
+  <ion-card-content>
+    <p>{{psicologo.descricao}}</p>
+
+   <section id="perfil">
+     Perfil
+     <ion-icon *ngIf="perfil===true"  name="chevron-up-outline" (click)="abrirPerfil()"></ion-icon>
+     <ion-icon *ngIf="perfil===false"  name="chevron-down-outline" (click)="abrirPerfil()"></ion-icon>
+     <p *ngIf="perfil===true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   </section>
+
+   <section id="avaliacoes">
+    Avaliações
+
+    <ion-icon *ngIf="avaliacoes===true" name="chevron-up-outline" (click)="abrirAvaliacoes()"></ion-icon>
+    <ion-icon *ngIf="avaliacoes===false" name="chevron-down-outline" (click)="abrirAvaliacoes()"></ion-icon>
+    <p *ngIf="avaliacoes===true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </section>
+
+  <section>
+    Data e Horario
+
+    <ion-icon *ngIf="horario===true" name="chevron-up-outline" (click)="abrirHorarios()"></ion-icon>
+    <ion-icon *ngIf="horario===false" name="chevron-down-outline" (click)="abrirHorarios()"></ion-icon>
+
+    <div *ngIf="horario===true">
+      <ion-datetime locale="pt-br"></ion-datetime>
+    </div>
+
+  </section>
+
+
+
+  </ion-card-content>
+  <ion-button expand="block" color="primary">
+    <ion-label style="font-size: larger">Marcar Consulta</ion-label>
+  </ion-button>
+</ion-card>
+
 
 </ion-content>
