@@ -38,15 +38,6 @@ export class LoginPage implements OnInit {
         localStorage.setItem('User', nome);
         console.log(this.retornoUsuario);
         console.log(data);
-        if(this.retornoUsuario === undefined){
-          console.log('entrou aqui');
-
-        }
-
-        if(data === []){
-          console.log('entra aqui');
-
-        }
 
          if(this.retornoUsuario !== undefined){
           if(this.usuario.usuario === usuario && this.usuario.senha === senha){
