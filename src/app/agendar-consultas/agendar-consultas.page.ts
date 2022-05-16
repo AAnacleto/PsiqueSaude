@@ -1,3 +1,4 @@
+import { Consultas } from './../shared/classes/consultas';
 import { AgendarConsultasService } from './servico/agendar-consultas.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,6 +15,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class AgendarConsultasPage implements OnInit {
   psicologo: Psicologos = new Psicologos();
+  consulta: Consultas = new Consultas();
   id: number;
   isDisabled = true;
   perfil: boolean;
@@ -30,6 +32,7 @@ export class AgendarConsultasPage implements OnInit {
     this.perfil = false;
     this.avaliacoes = false;
     this.horario = false;
+    this.consulta.paciente = localStorage.getItem('User');
     this.presentLoading();
     setTimeout(()=>{
       this.getPsicologos();
@@ -43,6 +46,8 @@ export class AgendarConsultasPage implements OnInit {
         this.psicologo = (data as Psicologos)[0];
         console.log(this.psicologo);
         console.log(this.psicologo.nome);
+        console.log(this.consulta.paciente);
+
       }
     );
   }

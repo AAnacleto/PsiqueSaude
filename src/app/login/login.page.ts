@@ -34,6 +34,8 @@ export class LoginPage implements OnInit {
         this.retornoUsuario = (data as Users[])[0];
         const usuario = this.retornoUsuario.usuario;
         const senha = this.retornoUsuario.senha;
+        const nome = this.retornoUsuario.nome;
+        localStorage.setItem('User', nome);
         console.log(this.retornoUsuario);
         console.log(data);
         if(this.retornoUsuario === undefined){
