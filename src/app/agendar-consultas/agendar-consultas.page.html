@@ -42,12 +42,17 @@
   <section>
    <span>Data e Horario</span>
      <div>
-      <ion-datetime locale="pt-br"></ion-datetime>
+      <ion-datetime
+      #datetime
+      locale="pt-br"
+      [value]="dateValue"
+      size="cover"
+      (ionChange)="dateChanged(datetime.value)"></ion-datetime>
     </div>
  </section>
 </ion-card-content>
   <ion-button expand="block" color="primary">
-    <ion-label style="font-size: larger">Marcar Consulta</ion-label>
+    <ion-label style="font-size: larger" (click)="marcarConsulta()">Marcar Consulta</ion-label>
   </ion-button>
 </ion-card>
 </ion-content>

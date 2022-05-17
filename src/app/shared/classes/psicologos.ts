@@ -12,4 +12,5 @@ export class Psicologos{
   horarios: Horarios;
   eventoHora: boolean;
   eventoDescricao: boolean;
+  instituicao: string;
 }

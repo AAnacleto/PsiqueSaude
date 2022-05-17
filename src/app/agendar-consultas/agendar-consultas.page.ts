@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Psicologos } from '../shared/classes/psicologos';
 import { LoadingController } from '@ionic/angular';
+import { format, parseISO } from 'date-fns';
 
 
 
@@ -21,6 +22,8 @@ export class AgendarConsultasPage implements OnInit {
   perfil: boolean;
   avaliacoes: boolean;
   horario: boolean;
+  dateValue = format(new Date(), 'yyy-MM-dd') + 'T09:00:00.000Z';
+  formattedString: string;
 
   constructor(private routeActivated: ActivatedRoute,
               private agendarConsultaService: AgendarConsultasService,
@@ -44,9 +47,8 @@ export class AgendarConsultasPage implements OnInit {
     this.agendarConsultaService.consultarPsicologos(this.id).subscribe(
       data => {
         this.psicologo = (data as Psicologos)[0];
-        console.log(this.psicologo);
-        console.log(this.psicologo.nome);
-        console.log(this.consulta.paciente);
+        this.consulta.psicologo = this.psicologo.nome;
+        this.consulta.instituicao = this.psicologo.instituicao;
 
       }
     );
@@ -64,16 +66,14 @@ export class AgendarConsultasPage implements OnInit {
     console.log('Loading dismissed!');
   }
 
-  abrirPerfil(){
-    this.perfil = !this.perfil;
+  dateChanged(value){
+    this.consulta.data = format(parseISO(value), 'dd/MM/yyyy');
+    this.consulta.hora = format(parseISO(value), 'HH:mm');
   }
 
-  abrirAvaliacoes(){
-    this.avaliacoes = !this.avaliacoes;
-  }
-
-  abrirHorarios(){
-    this.horario = !this.horario;
-  }
+ marcarConsulta(){
+   this.consulta.status = 'Aberto';
+   console.log(this.consulta);
+ }
 
 }
