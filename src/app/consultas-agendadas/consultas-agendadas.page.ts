@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BuscaPsicologosService } from '../busca-psicologos/buscaPsicologosService/busca-psicologos.service';
 import { Consultas } from '../shared/classes/consultas';
+import { LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-consultas-agendadas',
@@ -14,10 +16,15 @@ export class ConsultasAgendadasPage implements OnInit {
   nome: string;
   listaConsultas: Consultas[] = [];
 
-  constructor(private routeActivated: ActivatedRoute, private consultasAgendadasService: ConsultasAgendadasService) { }
+  constructor(private routeActivated: ActivatedRoute,
+              private consultasAgendadasService: ConsultasAgendadasService,
+              public loadingController: LoadingController,
+
+              ) { }
 
   ngOnInit() {
     this.nome = this.routeActivated.snapshot.params.nome;
+    this.presentLoading();
     setTimeout(()=>{
       this.pesquisarConsultas();
 
@@ -32,9 +39,19 @@ export class ConsultasAgendadasPage implements OnInit {
 
       }
     );
+}
 
 
+async presentLoading() {
+  const loading = await this.loadingController.create({
+    message: 'Carregando',
+    duration: 2000
+  });
+  await loading.present();
 
-  }
+  const { role, data } = await loading.onDidDismiss();
+
+  console.log('Loading dismissed!');
+}
 
 }

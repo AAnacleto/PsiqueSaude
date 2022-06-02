@@ -1,10 +1,12 @@
+import { Instituicao } from './../shared/classes/instituicao';
 import { Consultas } from './../shared/classes/consultas';
 import { AgendarConsultasService } from './servico/agendar-consultas.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Psicologos } from '../shared/classes/psicologos';
 import { LoadingController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
+import { ToastController } from '@ionic/angular';
 
 
 
@@ -17,6 +19,7 @@ import { format, parseISO } from 'date-fns';
 export class AgendarConsultasPage implements OnInit {
   psicologo: Psicologos = new Psicologos();
   consulta: Consultas = new Consultas();
+  instituicao: Instituicao = new Instituicao();
   id: number;
   isDisabled = true;
   perfil: boolean;
@@ -27,7 +30,10 @@ export class AgendarConsultasPage implements OnInit {
 
   constructor(private routeActivated: ActivatedRoute,
               private agendarConsultaService: AgendarConsultasService,
-              public loadingController: LoadingController) { }
+              public loadingController: LoadingController,
+              public toastController: ToastController,
+              private router: Router
+              ) { }
 
 
   ngOnInit() {
@@ -49,7 +55,14 @@ export class AgendarConsultasPage implements OnInit {
         this.psicologo = (data as Psicologos)[0];
         this.consulta.psicologo = this.psicologo.nome;
         this.consulta.instituicao = this.psicologo.instituicao;
+        this.agendarConsultaService.consultarInstituicao(this.consulta.instituicao).subscribe(
+          retorno => {
+             this.instituicao = (retorno as Instituicao)[0];
+             console.log(this.instituicao);
+             this.consulta.endereco = this.instituicao.endereco;
 
+          }
+        );
       }
     );
   }
@@ -71,8 +84,30 @@ export class AgendarConsultasPage implements OnInit {
     this.consulta.hora = format(parseISO(value), 'HH:mm');
   }
 
+  cadastrarConsulta(){
+    this.consulta.status= 'Ativo';
+    this.agendarConsultaService.cadastrarConsulta(this.consulta).subscribe(
+      data =>{
+        console.log(data);
+
+      }
+    );
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Consulta cadastrada com sucesso.',
+      duration: 3000
+    });
+    toast.present();
+  }
+
  marcarConsulta(){
-   this.consulta.status = 'Aberto';
+   this.cadastrarConsulta();
+   this.presentToast();
+   setTimeout(()=>{
+    this.router.navigate(['consultas-agendadas/'+ this.consulta.paciente]);
+    }, 2000);
    console.log(this.consulta);
  }
 
