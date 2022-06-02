@@ -9,11 +9,11 @@
 
 <ion-content color="secondary" fullscreen>
   <div *ngIf="listaConsultas.length !== 0; else consultasVazias">
-    <ion-card *ngFor="let consultas of listaConsultas">
-      <ion-card-header *ngIf="consultas.status==='ativo'" color="success">
+    <ion-card *ngFor="let consultas of listaConsultas, let i = index">
+      <ion-card-header *ngIf="consultas.status==='Ativo'" color="success">
         Consulta Ativa</ion-card-header
       >
-      <ion-card-header *ngIf="consultas.status==='inativo'" color="danger">
+      <ion-card-header *ngIf="consultas.status==='Inativo'" color="danger">
         Consulta Inativa
       </ion-card-header>
 
@@ -30,19 +30,11 @@
           <p>{{consultas.endereco.bairro}} - {{consultas.endereco.cidade}}</p>
           <p>{{consultas.endereco.pontoReferencia}}</p>
         </div>
+        <ion-button *ngIf="consultas.status==='Ativo'" (click)="excluirConsulta(consultas.id)" expand="block">Cancelar</ion-button>
+
       </ion-card-content>
     </ion-card>
-    <ion-list>
-      <ion-item-sliding>
-        <ion-item>
-          <ion-label>Consulta 01</ion-label>
-        </ion-item>
-        <ion-item-options side="end">
-          <ion-item-option >Desmarcar</ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
-  </div>
+   </div>
   <ng-template #consultasVazias>
     <ion-card>
       <ion-card-content>

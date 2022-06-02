@@ -41,6 +41,14 @@ export class ConsultasAgendadasPage implements OnInit {
     );
 }
 
+excluirConsulta(id: string){
+  console.log(id);
+  this.consultasAgendadasService.excluirConsultas(id).subscribe(
+    data =>{
+      this.ngOnInit();
+    }
+  );
+}
 
 async presentLoading() {
   const loading = await this.loadingController.create({
