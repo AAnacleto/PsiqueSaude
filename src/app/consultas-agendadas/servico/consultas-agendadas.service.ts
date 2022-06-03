@@ -9,8 +9,12 @@ export class ConsultasAgendadasService {
 
   constructor(private http: HttpClient) { }
 
-  pegarConsultas(nome: string){
-    return this.http.get('http://localhost:3000/Consultas/?paciente=' + nome);
+  pegarConsultasAtivas(nome: string){
+    return this.http.get('http://localhost:3000/Consultas/?paciente=' + nome + '&status=Ativo');
+  }
+
+  pegarConsultasInativas(nome: string){
+    return this.http.get('http://localhost:3000/Consultas/?paciente=' + nome + '&status=Inativo');
   }
 
   excluirConsultas(id: string){

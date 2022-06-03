@@ -15,6 +15,7 @@ export class ConsultasAgendadasPage implements OnInit {
 
   nome: string;
   listaConsultas: Consultas[] = [];
+  listaConsultasNãoOrdenadas: Consultas[];
 
   constructor(private routeActivated: ActivatedRoute,
               private consultasAgendadasService: ConsultasAgendadasService,
@@ -26,20 +27,30 @@ export class ConsultasAgendadasPage implements OnInit {
     this.nome = this.routeActivated.snapshot.params.nome;
     this.presentLoading();
     setTimeout(()=>{
-      this.pesquisarConsultas();
+      this.pesquisarConsultasAtivas();
 
  }, 2000);
   }
 
-  pesquisarConsultas(){
-    this.consultasAgendadasService.pegarConsultas(this.nome).subscribe(
+  pesquisarConsultasAtivas(){
+    this.consultasAgendadasService.pegarConsultasAtivas(this.nome).subscribe(
       data => {
         this.listaConsultas = (data as Consultas[]);
         console.log(this.listaConsultas);
-
-      }
+        }
     );
 }
+
+pesquisarConsultasInativas(){
+  this.consultasAgendadasService.pegarConsultasInativas(this.nome).subscribe(
+    data => {
+      this.listaConsultas = (data as Consultas[]);
+      console.log(this.listaConsultas);
+      }
+  );
+}
+
+
 
 excluirConsulta(id: string){
   console.log(id);

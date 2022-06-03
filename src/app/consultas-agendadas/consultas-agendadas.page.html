@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Consultas Agendadas</ion-title>
+    <ion-title>Consultas </ion-title>
     <ion-buttons slot="start">
       <ion-back-button text=""></ion-back-button>
     </ion-buttons>
@@ -8,6 +8,18 @@
 </ion-header>
 
 <ion-content color="secondary" fullscreen>
+  <ion-grid>
+    <ion-row>
+       <ion-col>
+        <ion-button expand="block" (click)="pesquisarConsultasAtivas()">Agendados</ion-button>
+
+       </ion-col>
+       <ion-col>
+        <ion-button expand="block"(click)="pesquisarConsultasInativas()">Histórico</ion-button>
+
+       </ion-col>
+    </ion-row>
+  </ion-grid>
   <div *ngIf="listaConsultas.length !== 0; else consultasVazias">
     <ion-card *ngFor="let consultas of listaConsultas, let i = index">
       <ion-card-header *ngIf="consultas.status==='Ativo'" color="success">
