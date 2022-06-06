@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content color="primary">
   <div id="main">
     <section class="container-head">
       <img src="../assets/logos/logo.png" />
@@ -17,13 +17,19 @@
       <br>
     </section>
      <section class="buttons">
-      <ion-button class="button" color="primary" expand="block" (click)="verificarLogin()"
+      <ion-button class="button" color="light" expand="block" (click)="verificarLogin()"
         >Entrar</ion-button
       >
       <br />
-      <ion-button class="button" color="primary" expand="block" (click)="registrar()">Registre-se</ion-button>
+      <ion-button class="button" color="light" expand="block" (click)="registrar()">Registre-se</ion-button>
+      <br>
+      <p><a> Esqueceu sua senha? </a> </p>
+
+
+
     </section>
   </div>
+
     <ng-template #NovoCadastro>
       <app-registro (novoRegistro)="receberStatusRegistro($event)"></app-registro>
     </ng-template>
